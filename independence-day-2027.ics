@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Pearls Places Montessori School//School Events//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:independence-day-2027@pearlsplacesmontessorischool
+DTSTAMP:20261117T065400Z
+DTSTART:20271001T070000Z
+DTEND:20271001T133000Z
+SUMMARY:Independence Day - Pearls Places Montessori School
+LOCATION:Pearls Places Montessori School
+DESCRIPTION:Celebrate Nigeria's Independence Day with cultural performances\, traditional music\, and patriotic activities.
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Independence Day is tomorrow.
+END:VALARM
+END:VEVENT
+END:VCALENDAR
