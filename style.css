@@ -3970,6 +3970,7 @@ body {
 
 .pp-testimonial-track {
   display: flex;
+  align-items: stretch;
   width: max-content;
   gap: 25px;
   padding: 15px 12px 25px;
@@ -3990,6 +3991,8 @@ body {
   width: 360px;
   min-height: 320px;
   padding: 32px;
+  display: flex;
+  flex-direction: column;
 
   background: rgba(255,255,255,.88);
   border: 1px solid rgba(7,91,145,.10);
@@ -4069,6 +4072,29 @@ body {
   position: relative;
   z-index: 1;
   margin: 0 0 25px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.pp-review.is-expanded {
+  display: block;
+  overflow: visible;
+}
+
+.pp-read-more {
+  align-self: flex-start;
+  margin: -12px 0 18px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--pp-primary);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
 }
 
 
@@ -4078,6 +4104,7 @@ body {
   display: flex;
   align-items: center;
   gap: 14px;
+  margin-top: auto;
 
   padding-top: 20px;
   border-top: 1px solid #edf1f5;
