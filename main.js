@@ -1708,23 +1708,19 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    function checkMidpointScroll() {
-      const pageHeight = Math.max(
-        document.documentElement.scrollHeight,
-        document.body.scrollHeight
-      );
-      const scrollableDistance = pageHeight - window.innerHeight;
+    function checkAfterMapScroll() {
+      const mapSection = document.getElementById('location');
 
-      if (scrollableDistance <= 0 || window.scrollY < scrollableDistance * 0.5) {
+      if (!mapSection || window.scrollY < mapSection.offsetTop + mapSection.offsetHeight) {
         return;
       }
 
-      window.removeEventListener('scroll', checkMidpointScroll);
+      window.removeEventListener('scroll', checkAfterMapScroll);
       window.showPpmsAd();
     }
 
-    window.addEventListener('scroll', checkMidpointScroll, { passive: true });
-    window.addEventListener('load', checkMidpointScroll, { once: true });
+    window.addEventListener('scroll', checkAfterMapScroll, { passive: true });
+    window.addEventListener('load', checkAfterMapScroll, { once: true });
   })();
 
 
@@ -1762,6 +1758,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     track.appendChild(clone);
 
+  });
+
+  track.addEventListener("click", (event) => {
+    const button = event.target.closest(".pp-read-more");
+
+    if (!button || !track.contains(button)) return;
+
+    const review = button.previousElementSibling;
+    const expanded = review.classList.toggle("is-expanded");
+
+    button.setAttribute("aria-expanded", String(expanded));
+    button.textContent = expanded ? "Read less" : "Read more";
   });
 
   // Reveal the section smoothly when it enters the viewport.
